@@ -121,7 +121,90 @@ li {
 }
 
 .section-image a {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.drawing {
+  display: none;
+  width: calc(100% - 32px);
+  max-width: 300px;
+  height: auto;
+  transform: scale(0.9);
+}
+#head {
+  transform: rotate(10deg);
+  transform-origin: center 38%;
+  animation-name: beary;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.impl {
+  width: calc(100% - 32px);
+  height: auto;
+  max-width: 300px;
+}
+
+@keyframes beary {
+  0% {
+      transform: rotate(0deg);
+  }
+  46% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(14deg);
+  }
+  96% {
+      transform: rotate(14deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+@media (max-height: 480px) {
+  .drawing, .impl {
+      width: auto;
+      height: calc(100vh - 8px);
+  }
+}
+.shakey {
+  animation-name: watery-eyes;
+  animation-duration: 200ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: center center;
+}
+@keyframes watery-eyes {
+  0% {
+      transform: none;
+  }
+  100% {
+      transform: rotateZ(1deg);
+  }
+}
+.heart {
+  animation-name: hearty;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: center 60%;
+}
+@keyframes hearty {
+  0% { transform: scale(0.95); }
+  5% { transform: scale(0.975); }
+  10% { transform: scale(0.95); }
+  15% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(0.95); }
 }
 
 #about .inner,
